@@ -26,6 +26,10 @@ overview of some circuits utilities.
       and parse LabViewer formatted data files. With this hassle out of the
       way, and with the help of niceplot, you spend more time understanding and
       analyzing plots rather than fixing bugs and managing files.
+* **makelab**
+    * makelab is a very simple bash script that creates a set of directories to
+    * populate with lab work. It also creates a skeleton Makefile that can be
+    * used to generate plots or clean the project.
 
 ## Installation ##
 ### niceplot ###
@@ -36,6 +40,9 @@ rest.
 ### elab ###
 The only thing you need for elab is python 2.7 or compatible. I also recommend
 you add the entire bin directory to your path, but it's up to you.
+
+### makelab ###
+All you need is bash!
 
 ## Academic Code of Conduct ##
 This repository *does not* share any information that should otherwise be kept

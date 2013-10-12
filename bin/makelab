@@ -1,0 +1,28 @@
+#! /bin/bash
+# makelab
+# Michael Whittaker
+# 2013-10-12
+
+# makelab is a simple script that generates the skeleton of a lab project. Four
+# directories are created and a templated Makefile is placed in the src
+# directory.
+
+mkdir data
+mkdir doc
+mkdir out
+mkdir src
+
+read -r -d '' makefiletxt<<HERE
+all: help
+
+help:
+\t@echo "TARGETS: plots, clean"
+
+plots:
+\t@echo 'matlab -nodesktop -nosplash -r "<SCRIPT>;quit"'
+
+clean:
+\t@echo "clean not implemented"
+HERE
+
+echo -e "$makefiletxt" > src/Makefile
