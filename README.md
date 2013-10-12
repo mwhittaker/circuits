@@ -28,8 +28,8 @@ overview of some circuits utilities.
       analyzing plots rather than fixing bugs and managing files.
 * **makelab**
     * makelab is a very simple bash script that creates a set of directories to
-    * populate with lab work. It also creates a skeleton Makefile that can be
-    * used to generate plots or clean the project.
+      populate with lab work. It also creates a skeleton Makefile that can be
+      used to generate plots or clean the project.
 
 ## Installation ##
 ### niceplot ###
