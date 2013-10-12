@@ -19,13 +19,13 @@ So what does this stuff do, you ask. Well, here's a terse and high level
 overview of some circuits utilities.
 * **niceplot**
     * The niceplot family of functions is a set of MATLAB plotting functions
-    * that make, well, nice plots. They alleviate the burden of having to hold
-    * on, enable grids, set axes, etc.  
+      that make, well, nice plots. They alleviate the burden of having to hold
+      on, enable grids, set axes, etc.  
 * **elab**
     * elab (short for ECE Lab or elaborate) generates MATLAB code to read in
-    * and parse LabViewer formatted data files. With this hassle out of the
-    * way, and with the help of niceplot, you spend more time understanding and
-    * analyzing plots rather than fixing bugs and managing files.
+      and parse LabViewer formatted data files. With this hassle out of the
+      way, and with the help of niceplot, you spend more time understanding and
+      analyzing plots rather than fixing bugs and managing files.
 
 ## Installation ##
 ### niceplot ###
