@@ -1,0 +1,170 @@
+#! /usr/bin/python
+# elab
+# Michael Whittaker
+# 2013-10-11
+
+"""
+elab (ECE Lab, or elaborate if you prefer) is a command line tool to parse ECE
+data files and generate the MATLAB code capable of loading and parsing the
+data.
+"""
+
+################################################################################
+# Imports
+################################################################################
+import argparse
+import textwrap
+import os
+import shlex
+import sys
+
+################################################################################
+# Globals
+################################################################################
+FILE_PREFIX_VERBOSE = ["f_", "file_"]
+COLUMN_PREFIX_VERBOSE = ["", "c", "column_"]
+
+################################################################################
+# Functions
+################################################################################
+def main():
+    """Generates matlab code to parse labviewer files.""" 
+    parser = make_parser()
+    args = parser.parse_args()
+    print gen(args)
+
+def gen(args):
+    """Generates the code for the matlab file. The matlab code consists of a
+    generated "main" function and a generated "init_global" functions."""
+    return gen_main(args) + "\n\n" + gen_init_global(args)
+
+def gen_main(args):
+    """Generates the matlab code for the "main" function. The main function
+    should have the same name as the matlab file and should call the function
+    for each part of the lab."""
+    return textwrap.dedent(
+    """\
+    function lab{0}
+    % ECE 2100 Lab {0}, Fall 2013. 
+        close all;
+        global out_file 
+        out_file = fopen('../out/out.txt','w');
+        init_global;
+       
+        % place q1, q2, etc. here
+        
+        fclose(out_file);
+    end""".format(args.lab))
+
+def gen_init_global(args):
+    """Generates the matlab code for the "init_global" function. The init
+    global function loads every file into matlab and then creates global
+    variables for all of the columns in all of the loaded files."""
+    generated = [gen_file(filename, args) for filename in args.files]
+
+    header = "function init_global\n"
+    globs = tab() + "global " + \
+            " ".join(map(" ".join, [glob for glob, code in generated])) + \
+            " out_file \n"
+    body = "\n".join([code for glob, code in generated])
+    footer = "end"
+
+    return header + globs + body + footer
+
+def gen_file(filename, args):
+    """Return (global, code) pair parsed from file <filename>. Also, files are
+    cleaned as they are parsed. That is, if a file contains tabs or extraneous
+    spaces, they are replaced by spaces or removed."""
+    code = ""   # the matlab code required to load file and columns
+    globs = []  # the global variable names
+    tmp_suffix = ".tmp.tmp" # suffix used to create temporary files
+    
+    try:
+        infile = open(filename, "r")
+    except IOError:
+        sys.stderr.write("ERROR: could not open " + filename + "\n")
+        return (globs, code)
+
+    try:
+        outfile = open(filename + tmp_suffix, "w")
+    except IOError:
+        sys.stderr.write("ERROR: could not open "+filename+tmp_suffix+"\n")
+        return (globs, code)
+    
+    # clean file and write to temp
+    outlines = [" ".join(line.split()) + "\n" for line in infile.readlines()]
+    map(outfile.write, outlines)
+    
+    # do nothing for bogus input
+    if (len(outlines) <= 2):
+        sys.stderr.write("WARNING: " + filename + " has no data\n")
+        close_and_move(filename, infile, outfile, tmp_suffix) 
+        return (globs, code)
+
+    # generate code to load the file
+    matlab_filename = verbosify(FILE_PREFIX_VERBOSE, args.verbose) + \
+            clean_filename(filename)
+    code += tab() + "% " + filename + " := " + outlines[1]
+    code += tab() + matlab_filename + " = dlmread('" + filename + \
+            "', ' ', 2, 0);\n"
+
+    # generate code to load the columns
+    for i in range(len(outlines[3].split())):
+        matlab_col = `i+1` if args.number \
+                else shlex.split(outlines[1])[i].split()[0]
+        matlab_varname = matlab_filename + "_" + \
+                verbosify(COLUMN_PREFIX_VERBOSE, args.verbose) + matlab_col
+        code += tab() + matlab_varname + " = " + matlab_filename + \
+                "(:," + `i+1` + ");\n"
+        globs += [matlab_varname]
+    
+    close_and_move(filename, infile, outfile, tmp_suffix) 
+    return (globs, code)
+
+def make_parser():
+    """Makes a command line parser for elab."""
+    parser = argparse.ArgumentParser(
+        prog = "elab",
+        description = "elab (ECE Lab) autogenerates MATLAB code to parse a\
+                collection of files.",
+        epilog = "Good luck on your lab!"
+    )
+
+    parser.add_argument("files", nargs="+", 
+            help="Labtracer formatted files. The first row should be garbage.\
+            The second row contains column names")
+    parser.add_argument("-n", "--number", action="store_true", default=False,
+            help="true if column numbers should replace column names")
+    parser.add_argument("-v", "--verbose", action="count", default=0,
+            help="the verbosity of the column variable names")
+    parser.add_argument("-l", "--lab", default="#",
+            help="the lab number")
+   
+    return parser 
+
+################################################################################
+# Helpers
+################################################################################
+def verbosify(l, i):
+    """Indexes a verbose list."""
+    return l[min(i, len(l) - 1)]
+
+def close_and_move(filename, infile, outfile, tmp_suffix):
+    """Closes <infile> and <outfile> and moves <outfile> to <infile>."""
+    outfile.close()
+    infile.close()
+    os.rename(filename + tmp_suffix, filename)
+
+def tab(n=1):
+    """Tabs."""
+    return "    "*n
+
+def clean_filename(filename):
+    """Cleans a Unix filename to a valid MATLAB identifier."""
+    return "_".join(filename.split(".")[:-1])
+
+################################################################################
+# Application Code
+################################################################################
+if __name__ == "__main__":
+    main()
