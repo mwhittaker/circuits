@@ -1,4 +1,8 @@
 function ret = niceaxes(label, magnitude)
+% Generates type safe labels.
+% @param label Unit (e.g. 'resistance', 'power', 'p', 'time')
+% @param magnitude The magnitude of unit (e.g. 1, 1e3, 1e-6)
+% @return Formatted label, as string
     label_ = label_lookup(label);
     prefix_ = prefix_lookup(magnitude);
     unit_ = unit_lookup(label);
