@@ -1,0 +1,77 @@
+#! /usr/bin/python
+# silly
+# Michael Whittaker
+# 2013-10-20
+
+"""Script to convert oscilliscope to SMU formatted data."""
+
+################################################################################
+# Imports
+################################################################################
+import sys
+import os
+
+################################################################################
+# Globals
+################################################################################
+TMP_SUFFIX = ".dat"
+
+################################################################################
+# Functions
+################################################################################
+def main(argv):
+    """Unsillifies each argument provided at the command line."""
+    for filename in argv:
+        unsillify(filename)
+
+def unsillify(filename):
+    """Converts the oscilliscope formatted data into SMU formatted data. The
+    new formatted data is written to <filename>+".dat""""
+    files = openfiles(filename)
+    if files is None:
+        return
+    else:
+        infile, outfile = files
+    
+    inlines = infile.readlines()
+    if (len(inlines) == 0):
+        sys.stderr.write("" + filename + " has no lines!")
+        return
+         
+    inlines = [line.split(',') for line in inlines]
+    inlines = [collapse(line) for line in inlines]
+
+    linelen = len(inlines[0])
+    text = "\n".join(" ".join(line) for line in inlines)
+
+    outfile.write("[" + "0 "*linelen + "]\n")
+    outfile.write("V s " * (linelen / 2) + "\n")
+    outfile.write(text)
+
+
+def collapse(line):
+    """Selects only the columns with data."""
+    f = lambda x: line.index(x) % 6 == 3 or line.index(x) % 6 == 4
+    return filter(f, line)
+
+def openfiles(filename):
+    """Opens files or fails"""
+    try:
+        infile = open(filename, "r")
+    except IOError:
+        sys.stderr.write("ERROR: could not open " + filename + "\n")
+        return None
+
+    try:
+        outfile = open(filename + TMP_SUFFIX, "w")
+    except IOError:
+        sys.stderr.write("ERROR: could not open "+filename+TMP_SUFFIX+"\n")
+        return None
+
+    return (infile, outfile)
+
+################################################################################
+# Application Code
+################################################################################
+if __name__ == "__main__":
+    main(sys.argv[1:])
