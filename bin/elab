@@ -161,6 +161,7 @@ def tab(n=1):
 
 def clean_filename(filename):
     """Cleans a Unix filename to a valid MATLAB identifier."""
+    filename = filename.split("/")[-1]
     return "_".join(filename.split(".")[:-1])
 
 ################################################################################
