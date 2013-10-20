@@ -26,7 +26,7 @@ def main(argv):
 
 def unsillify(filename):
     """Converts the oscilliscope formatted data into SMU formatted data. The
-    new formatted data is written to <filename>+".dat""""
+    new formatted data is written to <filename>+".dat"""
     files = openfiles(filename)
     if files is None:
         return
