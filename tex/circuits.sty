@@ -1,0 +1,97 @@
+%% Filename      : circuits.sty 
+%% Author(s)     : Michael Whittaker (mjw297@cornell.edu)
+%%                 Udit Gupta (ug28@cornell.edu) 
+%% Last Modified : 2013-10-27
+\ProvidesPackage{circuits}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Imports
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+\RequirePackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+% Typesetting code
+\RequirePackage{listings}
+
+% Relative font sizes
+\usepackage{relsize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{BackgroundGreen}{HTML}{E6F0F0}
+\definecolor{NoteBackground}{HTML}{FFFCE3}
+\definecolor{BackgroundBeige}{HTML}{FDF6E3}
+\definecolor{BackgroundYellow}{HTML}{FEFBDF}
+\definecolor{SolarizedGrey}{HTML}{657B83}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MATLAB Typesetting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MATLAB Language Definition
+\lstdefinelanguage{MATLAB} {
+  % Basic settings
+  basicstyle=\smaller\tt,
+  tabsize=4,
+  frame=single,
+  showstringspaces=false,
+  mathescape=true,
+  breaklines=true,
+  numbers=left,
+  % Keywords, strings, and comments
+  keywords={
+    break,
+    case,
+    catch,
+    classdef,
+    continue,
+    else,
+    elseif,
+    end,
+    for,
+    function,
+    global,
+    if,
+    otherwise,
+    parfor,
+    persistent,
+    return,
+    spmd,
+    switch,
+    try,
+    while
+  },
+  keywords=[2]{
+    nplot,
+    niceplot,
+    nicerplot,
+    nicestplot,
+    nlegend,
+    parallel,
+    phasorize
+  },
+  morestring=[b]',
+  morecomment=[l]\%,
+  % Colors and style
+  backgroundcolor=\color{BackgroundYellow},
+  keywordstyle=\color{blue},
+  keywordstyle=[2]\color{DarkOrchid},
+  commentstyle=\color{ForestGreen},
+  stringstyle=\color{Red},
+  numberstyle=\color{SolarizedGrey}, % the style that is used for the line-numbers
+}
+
+% MATLAB environment definition.
+\lstnewenvironment{MATLAB}{
+  \lstset{
+    language=MATLAB
+}}{}
+
+% MATLAB inline definition.
+\newcommand*{\matlab}{\lstinline[{language=MATLAB}]} %[
+
+% MATLAB input listing definition
+\newcommand{\inputmatlab}[1]{\lstinputlisting[language=MATLAB]{#1}}
+
+

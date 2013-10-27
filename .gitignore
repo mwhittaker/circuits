@@ -1,6 +1,7 @@
 # Archives
 *.zip
 *.tar.gz
+*.gz
 *.tgz
 
 # Object files
@@ -24,3 +25,8 @@
 
 # Images
 *.png
+*.pdf
+
+# etc
+*.log
+*.aux
