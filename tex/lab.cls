@@ -13,14 +13,16 @@
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage{fourier}
 \RequirePackage{DejaVuSansMono}
-\RequirePackage[letterpaper,margin=1in]{geometry}
+\RequirePackage[letterpaper,margin=0.75in]{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{float}
 \RequirePackage{fancyhdr}
 \RequirePackage{etoolbox}
 \RequirePackage{tabularx}
+\RequirePackage{tabulary}
 \RequirePackage{amsmath}
 \RequirePackage[compact]{titlesec}
+\RequirePackage{calc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Page Layout
@@ -96,7 +98,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \newcommand{\maketitletable}{
- \begin{tabularx}{\textwidth}{|l|X|l|X|}
+  \small
+  \begin{tabularx}{\textwidth}{|l|X|l|X|}
     \hline
     Your Name:                           & \@name{}     & Date:    & \@date{}   \\\hline
     Lab Partner's Name:                  & \@partner{}  & Lab Day: & \@labday{} \\\hline
@@ -158,3 +161,45 @@
   \addtocounter{Question}{1}
   \subsubsection*{\theQuestion) #1}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables and images
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New column types for tabularx
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+% Default height when image is not found
+\newcommand{\noImageHeight}{6cm}
+
+% Image directory path
+\newcommand{\imgpath}{../out}
+
+% Includes an image if it exists, otherwise displays text
+% @param #1 Image filename
+% @param #2 Text
+\makeatletter
+\newcommand{\tryplot}[2]{
+  \IfFileExists{#1}
+    {\raisebox{-0.5\totalheight}{\includegraphics[width=\linewidth]{#1}}}
+    {\parbox[c][\noImageHeight{}][c]{\linewidth}{\center #2\\\texttt{<#1>}}} 
+}
+\makeatother
+
+% tryplot in multicolumn
+% @param #1 Number of columns
+% @param #2 Leading |
+% @param #3 Filename
+% @param #4 Text
+\makeatletter
+\newcommand{\mtryplot}[4]{
+  \multicolumn{#1}{#2C|}{
+    \IfFileExists{#3}
+      {\raisebox{-0.5\totalheight}{\includegraphics[width=#1\linewidth + #1\columnsep]{#3}}}
+      {\parbox[c][\noImageHeight{}][c]{#1\linewidth + #1\columnsep}{\center #4\\\texttt{<#3>}}} 
+  }
+}
+\makeatother
+
+% Increase table padding
+\renewcommand{\arraystretch}{1.2}
