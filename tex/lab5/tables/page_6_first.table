@@ -1,0 +1,11 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|C|C|C|}
+                                                                                                                       \hline
+  \tryplot{\imgpath/page6topleft.png}{Insert an output trace, optimized gain, volume (no clipping) (This can be a screen shot, as long as it is readable)} & 
+  \tryplot{page6topmiddle.png}{Output trace, High gain, loud input (clipping) (This can be a screen shot, as long as it is readable)}  &
+  \tryplot{\imgpath{}/page6topleft.png}{Output trace. No sound, reference wire disconnected (this can be a screen shot, as long as it is readable)}
+   \\\hline  
+\end{tabularx}
+\end{center}
+}

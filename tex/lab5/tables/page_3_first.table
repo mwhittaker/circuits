@@ -1,0 +1,9 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|R|X|R|}
+                                                                                                                       \hline
+  $R_{bias}$ $\left(2.2k\Omega\right)$     & {}  $\Omega$ 		& $C_{ac}$ measured Value                        & {} $nF$ \\\hline
+  $R_{ac}$ design value                          & {} $\Omega$          & $R_{ac}$ measured Value                              & {} $\Omega$     \\\hline
+\end{tabularx}
+\end{center}
+}

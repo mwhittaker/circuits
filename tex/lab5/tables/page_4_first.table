@@ -1,0 +1,25 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|R|R|}
+                                                                                                                       \hline
+  \mtryplot{2}{|}{\imgpath{}/page4top.png}{Show your Vin and Vout max gain} \\\hline
+  \multicolumn{2}{|c|}{Component Parameters:} \\\hline
+  Var. Resistor Min Resistance & $\Omega$ \\\hline
+  Var. Resistor Max Resistance & $\Omega$ \\\hline
+  R1 actual Resistance & $\Omega$ \\\hline
+  R2 actual Resistance & $\Omega$ \\\hline
+  \multicolumn{2}{|c|}{Input Parameters:} \\\hline
+  Frequency on Signal Generator & {} Hz \\\hline
+  Amplitude on Signal Generator & mV \\\hline
+  \multicolumn{2}{|c|}{Output Signal:} \\\hline
+  Output Amplitude, min gain & {} mV \\\hline
+  Output Amplitude, max gain & {} mV \\\hline
+  \multicolumn{2}{|c|}{Gain Range:} \\\hline
+  Min gain $\left|\frac{V{out}}{V_{in}}\right|$ & {} $\frac{V}{V}$ \\\hline
+  Max gain $\left|\frac{V{out}}{V_{in}}\right|$ & {} $\frac{V}{V}$ \\\hline
+
+  \tryplot{\imgpath{}/page4bottomleft.png}{Show your Vin and Vout max gain} & 
+  \tryplot{\imgpath{}/page4bottomright.png}{Show Vin and Vout min gain}                                       \\\hline  
+\end{tabularx}
+\end{center}
+}

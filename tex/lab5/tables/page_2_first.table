@@ -1,0 +1,9 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|R|X|R|}
+                                                                                                                       \hline
+  R1 design value                    	 & {}  $\Omega$ 		& R1 measured Value                        & {} $\Omega$ \\\hline
+  R2 design value                          & {} $\Omega$          & R2 measured Value                              & {} $\Omega$     \\\hline
+\end{tabularx}
+\end{center}
+}
