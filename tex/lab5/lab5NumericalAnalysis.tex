@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{lab}
+\labnum{5}
+\title{Numerical Modelling Exercise Template}
+\name{NAME}
+\partner{PARTNER}
+\ppartner{PARTNER2}
+\labday{DAY}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Part 1: Open Loop
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Part{Open Loop:}
+
+In steady state, what is $\frac{V_{out}}{V_{in}}$? {}
+\Segment{Comments} 
+
+\Question{Did $V_{out}$ behave as expected?} 
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Part 2: Non-Inverting Amplifier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Part{Non-Inverting Amplifier}
+What is the equation for $V_{minus}$ in terms of $V_{out}$? {}
+\input{tables/NumAnal/page_1_first.table}
+%\input{tables/NumAnal/page_2_second.table}
+\Segment{Comments}
+%
+
+\Question{What is the steady state gain? What is the steady-state of Vminus relative to Vin? How does the settling time change relative to open-loop?}
+%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Part 3: Inverting Amplifier: 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Part{Inverting Amplifier:}
+What is the equation for $V_{minus}$ in terms of $V_{out}$ and $V_{in}$? {}
+
+%INSERT MODIFIED CODE HERE
+%\inputmatlab{}
+
+\input{tables/NumAnal/page_1_second.table}
+\Segment{Comments}
+
+\Question{What is the steady state gain? What is the steady-state value of $V_{minus}$ relative to $V_{in}$ How does the settling time change relative to open-loop?} 
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Part 4: Effect of Av
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Part{Effect of $A_v$:}
+
+\input{tables/NumAnal/page_2_first.table}
+
+\Segment{Comments:}
+\Question{How, if at all, is gain and $V_{minus}$ changed?}
+%
+
+\input{tables/NumAnal/page_2_second.table}
+
+\Segment{Comments:}
+\Question{How, if at all, is gain and $V_{minus}$ changed?}
+%
+
+
+\end{document}
