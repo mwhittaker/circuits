@@ -2,8 +2,8 @@
 \begin{center}
 \begin{tabularx}{\textwidth}{|X|R|X|R|}
                                                                                                                        \hline
-  \mtryplot{2}{|}{\imgpath{}/page1topleft.png}{Plot $V_{out}$ vs $V_{in}$ here} & 
-  \mtryplot{2}{}{\imgpath{}/page1topright.png}{Plot $I_{in}$ vs $V_{in}$ here}                                       \\\hline  
+  \mtryplot{2}{|}{\imgpath/page1topleft.png}{Plot $V_{out}$ vs $V_{in}$ here} & 
+  \mtryplot{2}{}{\imgpath/page1topright.png}{Plot $I_{in}$ vs $V_{in}$ here}                                       \\\hline  
   Voltage gain (min)                      & {} $\frac{V}{V}$ & Input resistance                        & {} $\Omega$ \\\hline
   Offset Voltage                          & {} $mV$          & Input bias                              & {} $A$      \\\hline
   Max output voltage                      & {} $V$           & Min output voltage                      & {} $V$      \\\hline

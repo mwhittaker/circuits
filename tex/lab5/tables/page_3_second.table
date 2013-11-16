@@ -2,8 +2,8 @@
 \begin{center}
 \begin{tabularx}{\textwidth}{|X|R|X|R|}
                                                                                                                        \hline
-  \mtryplot{2}{|}{\imgpath{}/page3topleft.png}{Plot oscilloscope trace for a loud voice (This can be a screen shot, as long as it is neat and easy to read)} & 
-  \mtryplot{2}{}{\imgpath{}/page3topright.png}{Plot oscilloscope trace for a quiet voice (This can be a screen shot, as long as it is neat and easy to read)}                                       \\\hline  
+  \mtryplot{2}{|}{\imgpath/page3topleft.png}{Plot oscilloscope trace for a loud voice (This can be a screen shot, as long as it is neat and easy to read)} & 
+  \mtryplot{2}{}{\imgpath/page3topright.png}{Plot oscilloscope trace for a quiet voice (This can be a screen shot, as long as it is neat and easy to read)}                                       \\\hline  
   $|V_{max}|$ loud	                 & {} $\frac{V}{V}$ & $|V_{max}|$ quiet	                        & {} $\Omega$ \\\hline
   $V_{speaker}$ for $V_{in}$=100mVpp   & {} $V$          & $V_{DC}$ (without AC coupling)                              & {} $V$      \\\hline
 \end{tabularx}

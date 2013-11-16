@@ -2,8 +2,8 @@
 \begin{center}
 \begin{tabularx}{\textwidth}{|X|R|X|R|}
                                                                                                                        \hline
-  \mtryplot{2}{|}{\imgpath{}/page5topleft.png}{Overlay input, output votlage traces, diff. mode} & 
-  \mtryplot{2}{}{\imgpath{}/page5topright.png}{Overlay input, output votlage traces, comm. mode}                                       \\\hline 
+  \mtryplot{2}{|}{\imgpath/page5topleft.png}{Overlay input, output votlage traces, diff. mode} & 
+  \mtryplot{2}{}{\imgpath/page5topright.png}{Overlay input, output votlage traces, comm. mode}                                       \\\hline 
    
   Diff. Mode Gain, predicted              & {} $\frac{V}{V}$ & Common mode gain, predicted,            & {} $\frac{V}{V}$ \\\hline
  

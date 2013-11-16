@@ -2,8 +2,8 @@
 \begin{center}
 \begin{tabularx}{\textwidth}{|X|R|X|R|}
                                                                                                                        \hline
-  \mtryplot{2}{|}{\imgpath{}/page5bottomleft.png}{Overlay input, output voltage traces, min gain} & 
-  \mtryplot{2}{}{\imgpath{}/page5bottomright.png}{Overlay input, output voltage traces, max gain}                                       \\\hline  
+  \mtryplot{2}{|}{\imgpath/page5bottomleft.png}{Overlay input, output voltage traces, min gain} & 
+  \mtryplot{2}{}{\imgpath/page5bottomright.png}{Overlay input, output voltage traces, max gain}                                       \\\hline  
   Min System Gain                     	 & {}  & Max System Gain                        
   & {}  \\\hline
 \end{tabularx}
