@@ -72,12 +72,16 @@
 \renewcommand\@title{}
 \renewcommand\title[1]{\renewcommand{\@title}{#1}}
 
+% Document type
+\newcommand{\@doctype}{Lab}
+\newcommand{\doctype}[1]{\renewcommand{\@doctype}{#1}}
+
 % Format header and Footer
 \pagestyle{fancy}
 \lhead{\@name{}}
 \chead{}
 \rhead{\@date{}}
-\lfoot{\@course{}, \@semester{}, Lab \@labnum{}}
+\lfoot{\@course{}, \@semester{}, \@doctype{} \@labnum{}}
 \cfoot{}
 \rfoot{Page \thepage}
 
