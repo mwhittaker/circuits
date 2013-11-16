@@ -1,0 +1,9 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|C|}
+                                                                                                                      \hline
+  \tryplot{\imgpath/page6bottom.png}{Draw the overall circuit you built, with all components labeled}
+   \\\hline  
+\end{tabularx}
+\end{center}
+}

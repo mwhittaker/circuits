@@ -1,0 +1,13 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|R|X|R|}
+                                                                                                                       \hline
+  \mtryplot{2}{|}{\imgpath{}/page2topleft.png}{Plot $V_{out}$ vs $V_{in}$ here without a load, and with RL = 100$\Omega$} & 
+  \mtryplot{2}{}{\imgpath{}/page2topright.png}{Plot $I_{in}$ vs $V_{in}$ here without a load, and with RL = 100$\Omega$}                                       \\\hline  
+  
+  Voltage gain (min)                      & {} $\frac{V}{V}$ & Input resistance                        & {} $\Omega$ \\\hline
+  $V_{outmax}$ (unloaded)                          & {} $V$          & $V_{outmin}$ (unloaded) & {} $V$      \\\hline
+  $V_{outmax}$ (loaded)                          & {} $V$          & $V_{outmin}$ (loaded) & {} $V$      \\\hline
+\end{tabularx}
+\end{center}
+}

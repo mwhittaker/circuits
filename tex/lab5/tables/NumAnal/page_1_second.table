@@ -1,0 +1,10 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|C|C|}
+                                                                                                                      \hline
+  \tryplot{\imgpath/page1bottomleft.png}{Plot of $V_{out} vs. time$} &
+  \tryplot{\imgpath/page1bottomright.png}{Plot of $V_{minus} vs. time$}
+   \\\hline  
+\end{tabularx}
+\end{center}
+}

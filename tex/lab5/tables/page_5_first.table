@@ -1,0 +1,9 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|R|X|R|}
+                                                                                                                       \hline
+  R1a resistance	           	  		      & {}  $\Omega$ 		& R1b resistance                        & {} $\Omega$ \\\hline
+  R2a resistance                          & {} $\Omega$          & R2b resistance                              & {} $\Omega$     \\\hline
+\end{tabularx}
+\end{center}
+}

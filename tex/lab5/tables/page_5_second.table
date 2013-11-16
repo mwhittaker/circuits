@@ -1,0 +1,17 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|R|X|R|}
+                                                                                                                       \hline
+  \mtryplot{2}{|}{\imgpath{}/page5topleft.png}{Overlay input, output votlage traces, diff. mode} & 
+  \mtryplot{2}{}{\imgpath{}/page5topright.png}{Overlay input, output votlage traces, comm. mode}                                       \\\hline 
+   
+  Diff. Mode Gain, predicted              & {} $\frac{V}{V}$ & Common mode gain, predicted,            & {} $\frac{V}{V}$ \\\hline
+ 
+  Diff. Mode Gain, measured               & {} $\frac{V}{V}$          & Common mode gain, measured                                  & {} $\frac{V}{V}$      \\\hline
+  
+  Vin max for clipping (predicted)        & {} $V$           & CMRR (predicted from R's)                      & {} $V$      \\\hline
+
+  Vin max for clipping (measured )        & {} $V$           & CMRR (measured)                      & {} 	      \\\hline  
+\end{tabularx}
+\end{center}
+}

@@ -1,0 +1,13 @@
+{\small
+\begin{center}
+\begin{tabularx}{\textwidth}{|X|R|X|R|}
+                                                                                                                       \hline
+  Max $V_{out}$					    		& {}  $V$ 					& G1min measured Value                        & {} $\frac{V}{V}$ \\\hline
+  Min Gain (whole system)         		& {} $\frac{V}{V}$	        & G1max					 & {} $\frac{V}{V}$     \\\hline
+  Max Gain (whole system)         		& {} $\frac{V}{V}$	        & G2
+& {} $\frac{V}{V}$     \\\hline
+  Gain Range: (max/min)         			& {} 	        				& Min Zin1 (approximate)
+& {} $\Omega$     \\\hline
+\end{tabularx}
+\end{center}
+}
