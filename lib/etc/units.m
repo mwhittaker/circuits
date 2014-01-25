@@ -182,6 +182,29 @@ function units
     if (existcon( 'aV_' )  == 0) defcon( 'aV_' , 1e-18 ); end
     if (existcon( 'zV_' )  == 0) defcon( 'zV_' , 1e-21 ); end
     if (existcon( 'yV_' )  == 0) defcon( 'yV_' , 1e-24 ); end
+
+    % Newtons
+    if (existcon( 'YN_' )  == 0) defcon( 'YN_' , 1e24  ); end
+    if (existcon( 'ZN_' )  == 0) defcon( 'ZN_' , 1e21  ); end
+    if (existcon( 'EN_' )  == 0) defcon( 'EN_' , 1e18  ); end
+    if (existcon( 'PN_' )  == 0) defcon( 'PN_' , 1e15  ); end
+    if (existcon( 'TN_' )  == 0) defcon( 'TN_' , 1e12  ); end
+    if (existcon( 'GN_' )  == 0) defcon( 'GN_' , 1e9   ); end
+    if (existcon( 'MN_' )  == 0) defcon( 'MN_' , 1e6   ); end
+    if (existcon( 'kN_' )  == 0) defcon( 'kN_' , 1e3   ); end
+    if (existcon( 'hN_' )  == 0) defcon( 'hN_' , 1e2   ); end
+    if (existcon( 'daN_')  == 0) defcon( 'daN_', 1e1   ); end
+    if (existcon( 'N_'  )  == 0) defcon( 'N_'  , 1e0   ); end
+    if (existcon( 'dN_' )  == 0) defcon( 'dN_' , 1e-1  ); end
+    if (existcon( 'cN_' )  == 0) defcon( 'cN_' , 1e-2  ); end
+    if (existcon( 'mN_' )  == 0) defcon( 'mN_' , 1e-3  ); end
+    if (existcon( 'uN_' )  == 0) defcon( 'uN_' , 1e-6  ); end
+    if (existcon( 'nN_' )  == 0) defcon( 'nN_' , 1e-9  ); end
+    if (existcon( 'pN_' )  == 0) defcon( 'pN_' , 1e-12 ); end
+    if (existcon( 'fN_' )  == 0) defcon( 'fN_' , 1e-15 ); end
+    if (existcon( 'aN_' )  == 0) defcon( 'aN_' , 1e-18 ); end
+    if (existcon( 'zN_' )  == 0) defcon( 'zN_' , 1e-21 ); end
+    if (existcon( 'yN_' )  == 0) defcon( 'yN_' , 1e-24 ); end
 end
 
 function ret = existcon(con)
