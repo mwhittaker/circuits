@@ -1,0 +1,209 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Demo for the User Defined Constants capability in MATLAB</title><meta name="generator" content="MATLAB 7.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2011-08-22"><meta name="DC.source" content="UserDefinedConstantsDemo.m"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head><body><div class="content"><h1>Demo for the User Defined Constants capability in MATLAB</h1><!--introduction--><p>Place the UserDefinedConstants directory on your MATLAB search path</p><p>The define function actually generates a function m-file on the fly. This allows any user defined constants to be usable in all of your own m-files without the need for a global declaration. It also allows your defined constants to remain viable from one MATLAB session to the next without needing to recreate them.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Defining a constant for later use, i.e., make phi = (sqrt(5) - 1)/2</a></li><li><a href="#2">Using the constant that we just defined</a></li><li><a href="#3">These defined constants work just like ones, zeros, nans, inf, etc.</a></li><li><a href="#5">Help is available for the defined constant m-file</a></li><li><a href="#6">The function is stored in the same directory where define lives on your search path</a></li><li><a href="#7">Constants can be complex numbers, uint8, etc.</a></li><li><a href="#9">Removing a defined constant is as simple as can be</a></li><li><a href="#13">Constants may be more than just simple scalar values</a></li></ul></div><h2>Defining a constant for later use, i.e., make phi = (sqrt(5) - 1)/2<a name="1"></a></h2><pre class="codeinput">defcon(<span class="string">'phi'</span>,(sqrt(5) - 1)/2,<span class="string">'The Golden Ratio'</span>)
+</pre><h2>Using the constant that we just defined<a name="2"></a></h2><pre class="codeinput">phi
+</pre><pre class="codeoutput">ans =
+      0.61803
+</pre><h2>These defined constants work just like ones, zeros, nans, inf, etc.<a name="3"></a></h2><p>When called with an argument, the argument is treated as the desired size of the returned array. So if you always wanted a twos function, that works just like ones and zeros, it now takes only one line to create.</p><pre class="codeinput">defcon(<span class="string">'twos'</span>,2,<span class="string">'The number 2'</span>)
+twos(4,5)
+</pre><pre class="codeoutput">ans =
+     2     2     2     2     2
+     2     2     2     2     2
+     2     2     2     2     2
+     2     2     2     2     2
+</pre><p>Just like ones or zeros, a scalar argument is interpreted to generate NxN square array</p><pre class="codeinput">phi(3)
+</pre><pre class="codeoutput">ans =
+      0.61803      0.61803      0.61803
+      0.61803      0.61803      0.61803
+      0.61803      0.61803      0.61803
+</pre><h2>Help is available for the defined constant m-file<a name="5"></a></h2><p>The help block mirrors that of the ones and zeros functions.</p><pre class="codeinput">help <span class="string">phi</span>
+</pre><pre class="codeoutput">  phi - User Defined Constant: The Golden Ratio
+ 
+  phi(N) is an N-by-N matrix filled with 0.6180339887498949.
+ 
+  phi(M,N) or phi([M,N]) is an M-by-N matrix of 0.6180339887498949.
+ 
+  phi(M,N,P,...) or phi([M N P ...]) is an M-by-N-by-P-by-...
+       array of 0.6180339887498949.
+ 
+  phi(SIZE(A)) is the same size as A and all 0.6180339887498949.
+ 
+  phi with no arguments is the scalar 0.6180339887498949.
+ 
+  see also: ones, zeros, nan
+
+</pre><h2>The function is stored in the same directory where define lives on your search path<a name="6"></a></h2><pre class="codeinput">which <span class="string">phi</span>
+</pre><pre class="codeoutput">/Users/woodchips/Desktop/My_FEX/UserDefinedConstants/phi.m
+</pre><h2>Constants can be complex numbers, uint8, etc.<a name="7"></a></h2><pre class="codeinput">defcon(<span class="string">'zeta'</span>,1+3i,<span class="string">'A complex constant'</span>)
+zeta
+</pre><pre class="codeoutput">ans =
+            1 +          3i
+</pre><p>Even a scalar character is a valid constant</p><pre class="codeinput">defcon(<span class="string">'eh'</span>,<span class="string">'A'</span>,<span class="string">'The Capital letter ''A'''</span>)
+eh(20,30)
+</pre><pre class="codeoutput">ans =
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</pre><h2>Removing a defined constant is as simple as can be<a name="9"></a></h2><p>We just defined the constant eh. See that which finds it.</p><pre class="codeinput">which <span class="string">eh</span>
+</pre><pre class="codeoutput">/Users/woodchips/Desktop/My_FEX/UserDefinedConstants/eh.m
+</pre><p>exist sees it too</p><pre class="codeinput">exist <span class="string">eh</span>
+</pre><pre class="codeoutput">ans =
+     2
+</pre><p>We can delete eh.m, but we need to specify the complete path to eh. So use which inside the delete function.</p><pre class="codeinput">delete(which(<span class="string">'eh.m'</span>))
+</pre><p>It is now gone, as it should be.</p><pre class="codeinput">exist <span class="string">eh</span>
+</pre><pre class="codeoutput">ans =
+     0
+</pre><h2>Constants may be more than just simple scalar values<a name="13"></a></h2><pre class="codeinput">defcon(<span class="string">'alph'</span>,<span class="string">'The quick brown fox jumped over the lazy dog'</span>)
+alph
+</pre><pre class="codeoutput">ans =
+The quick brown fox jumped over the lazy dog
+</pre><p class="footer"><br>
+      Published with MATLAB&reg; 7.12<br></p></div><!--
+##### SOURCE BEGIN #####
+%% Demo for the User Defined Constants capability in MATLAB
+%
+% Place the UserDefinedConstants directory on your MATLAB search path
+% 
+% The define function actually generates a function m-file on the fly.
+% This allows any user defined constants to be usable in all of your
+% own m-files without the need for a global declaration. It also allows
+% your defined constants to remain viable from one MATLAB session to
+% the next without needing to recreate them.
+
+%% Defining a constant for later use, i.e., make phi = (sqrt(5) - 1)/2
+defcon('phi',(sqrt(5) - 1)/2,'The Golden Ratio')
+
+%% Using the constant that we just defined
+phi
+
+%% These defined constants work just like ones, zeros, nans, inf, etc.
+% When called with an argument, the argument is treated as the desired size
+% of the returned array. So if you always wanted a twos function, that
+% works just like ones and zeros, it now takes only one line to create.
+defcon('twos',2,'The number 2')
+twos(4,5)
+
+%%
+% Just like ones or zeros, a scalar argument is interpreted to generate
+% NxN square array
+phi(3)
+
+%% Help is available for the defined constant m-file
+% The help block mirrors that of the ones and zeros functions.
+help phi
+
+%% The function is stored in the same directory where define lives on your search path
+which phi
+
+%% Constants can be complex numbers, uint8, etc.
+defcon('zeta',1+3i,'A complex constant')
+zeta
+
+%%
+% Even a scalar character is a valid constant
+defcon('eh','A','The Capital letter ''A''')
+eh(20,30)
+
+%% Removing a defined constant is as simple as can be
+% We just defined the constant eh. See that which finds it.
+which eh
+%%
+% exist sees it too
+exist eh
+%%
+% We can delete eh.m, but we need to specify the complete path to eh.
+% So use which inside the delete function.
+delete(which('eh.m'))
+%%
+% It is now gone, as it should be.
+exist eh
+
+%% Constants may be more than just simple scalar values
+defcon('alph','The quick brown fox jumped over the lazy dog')
+alph
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>

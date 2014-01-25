@@ -1,0 +1,33 @@
+% Template file for User Defined Constants 
+function const = ?ConstantName?(varargin)
+% ?ConstantName? - User Defined Constant: ?Description?
+%
+% ?ConstantName?(N) is an N-by-N matrix filled with ?Value?.
+%
+% ?ConstantName?(M,N) or ?ConstantName?([M,N]) is an M-by-N matrix of ?Value?.
+%
+% ?ConstantName?(M,N,P,...) or ?ConstantName?([M N P ...]) is an M-by-N-by-P-by-...
+%      array of ?Value?.
+%
+% ?ConstantName?(SIZE(A)) is the same size as A and all ?Value?.
+%
+% ?ConstantName? with no arguments is the scalar ?Value?.
+%
+% see also: ones, zeros, nan
+
+% create a scalar to return
+const = ?Value?;
+
+if (nargin > 0)
+  % what size do we need the result
+  N = horzcat(varargin{:});
+  
+  % in case a square matrix is called for
+  if numel(N) == 1
+    N = [N,N];
+  end
+  
+  % replicate it up as necessary
+  const = repmat(const,N);
+end
+
