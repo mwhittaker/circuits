@@ -1,3 +1,6 @@
+# Vim
+*.swp
+
 # Archives
 *.zip
 *.tar.gz
