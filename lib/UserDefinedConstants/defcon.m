@@ -101,7 +101,7 @@ if isempty(ConstantName) || ~ischar(ConstantName)
   error('DEFINE:improperarguments','ConstantName must be a character string')
 end
 existence = exist(ConstantName); %#ok
-if ismember(existence,[2 3 4 5 6 8])
+if ismember(existence,[3 4 5 6 8])
   error('DEFINE:ConstantName','ConstantName already exists in MATLAB as a function or a file')
 else
   % we need to check to see if that name already exists as a 
@@ -175,7 +175,6 @@ Dpath = which('defcon.m');
 
 % Write out a new m-file, in the DefinedConstants directory
 % that holds our on-the-fly created function.
-ConstantName
 filename = fullfile(UDCdir,[ConstantName,'.m']);
 
 % open the new m-file for writing
