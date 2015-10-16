@@ -9,7 +9,7 @@
     * executable scripts
 
 ## Purpose ##
-ECE 2100 is hard! ECE 2100 labs are hard. The scripts in this repository are
+ECE 2100 is hard! ECE 2100 labs are super hard. The scripts in this repository are
 designed to automate the manual and time consuming work associated with labs
 (e.g. formatting plots, loading data, etc.) so that you can focus on the more
 cerebral aspect of the class. Ideally, this will make the class less hard.
