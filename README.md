@@ -1,7 +1,5 @@
 # ECE 2100: Circuits #
 
----
-
 ## Index ##
 * **lib**
     * non-executable, general purpose MATLAB functions
