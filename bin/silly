@@ -1,6 +1,5 @@
 #! /usr/bin/python
 # silly
-# Michael Whittaker
 # 2013-10-20
 
 """Script to convert oscilliscope to SMU formatted data."""
